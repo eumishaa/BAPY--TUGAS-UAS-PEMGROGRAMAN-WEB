@@ -1,0 +1,358 @@
+:root{
+    --warna-bg: #EAF6FF;
+    --warna-kartu: #FFFFFF;
+    --warna-teks: #333333;
+    --warna-judul: #5A4799;
+
+    --warna-utama: #8C6FF0;
+    --warna-hewan: #FFF9E6;
+    --warna-btn-hewan: #FFB347;
+    --warna-buah: #FFF0F0;
+    --warna-btn-buah: #FF6B6B;
+}
+@font-face {
+    font-family: 'More Sugar';
+    src: url('../moresugar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.kartu-utama {
+    width: 100%;
+    max-width: 99%;
+    margin: 30px auto 50px auto;
+    background-color: #FDFAF5; 
+    border-radius: 40px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden; 
+}
+/*desain navbar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FDFAF5;
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    padding: 15px 5%;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 20px 20px;
+}
+.nav-link{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.nav-item{
+    text-decoration:none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 999px;
+    transition:all;
+    font-family: 'More Sugar', 'Baloo 2', Arial, sans-serif;
+    padding: 10px 20px;
+}
+.nav-item.aktif {
+    background-color: #5B21B6;
+    color: white;
+}
+.btn-ayo-belajar {
+    background-color: #EF4444;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-weight: bold;
+    font-family: 'More Sugar', Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/*desain hero*/
+.hero{
+    background-image: url('../images/bg1.png');
+    background-size: cover;
+    background-position: center bottom;
+    width: 100%;
+    padding: 100px 10% 100px 12%;
+    box-sizing: border-box;
+    display: flex;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); 
+}
+.hero-konten{
+    max-width: 50%;
+}
+.hero-judul{
+    font-family: 'More Sugar', Arial, sans-serif;
+    font-size: 56px;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+.teks-biru { color: #5B21B6; }
+.teks-coklat { color:#FF6B6B;}
+
+/*kotak deskripsi*/
+.kotak-deskripsi{
+    background-color: #FFF0F5; /* Pink sangat muda */
+    border: 3px dashed #000000; /* Garis putus-putus hitam */
+    border-radius: 10px;
+    font-family: 'More Sugar', Arial, sans-serif;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+.kotak-deskripsi p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    font-family: Arial, sans-serif; 
+}
+.btn-mulai-ungu {
+    background-color: #602fad;
+    color: rgb(211, 201, 201);
+    border: none;
+    border-radius: 999px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'More Sugar', Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #3b0764;
+}
+
+.btn-mulai-ungu:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+/*Halaman utama*/
+body{
+    margin: 0;
+    font-family: 'More Sugar', 'Helvetica', sans-serif;
+    background-color: var(--warna-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 50px 0;
+}
+
+.judul-kategori{
+    text-align: center;
+    margin: 30px 0 20px 0;
+}
+.judul-teks{
+    font-family: 'More Sugar', Arial, sans-serif;
+    font-size: 36px;
+    margin: 0;
+}
+.warna-mulai { color:var(--warna-judul)}
+.warna-belajar { color:var(--warna-utama)}
+
+header{
+    text-align: center;
+    margin-bottom : 30px;
+}
+
+#bagian-alfabet {
+    background-color: #FFF7E8;
+    padding: 60px 50px;
+    width: 100%;
+    box-sizing: border-box;
+    scroll-margin-top: 100px;
+}
+
+/*Tombol*/
+#grid {
+    display: grid;
+    grid-template-columns: repeat(11, 65px);
+    gap: 10px;
+    justify-content: center;
+
+    scroll-margin-top: 200px; /* Jarak dari atas saat scroll */
+}
+.baris-wxyz {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*Desain Tombol*/
+.tombol-huruf {
+    width: 65px;
+    height: 65px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*Efek Tombol saat ditekan*/
+.tombol-huruf:active{
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/*Kotak detail*/
+.kotak-detail{
+    background-color: var(--warna-kartu);
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    scroll-margin-top: 100px;
+}
+.header-kartu{
+    margin-bottom: 20px;
+}
+.bungkus-kartu{
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/*Desain Kartu Detail*/
+.kartu{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 30px 30px;
+    width: 200px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.desain-huruf{
+    background-color: #F3F0FF;
+    border: 3px dashed #D9CEFF;
+    width: 100%;
+}
+
+.desain-huruf { background-color: #F3F0FF; border: 3px dashed #D9CEFF; }
+.desain-hewan { background-color: var(--warna-hewan); }
+.desain-buah { background-color: var(--warna-buah); }
+
+/*desain teks dan foto*/
+.teks-besar {
+    font-size: 64px;
+    color: var(--warna-judul);
+    margin: 0 0 20px 0;
+}
+.teks-nama{
+    font-size: 24px;
+    color: var(--warna-teks);
+    margin: 0 0 20px 0;
+}
+
+.foto-kotak {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    background-color: var(--warna-kartu);
+    margin-bottom: 15px;
+}
+
+/*desain tombol kembali dan suara*/
+.btn-kembali{
+    background-color: var(--warna-utama);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-suara{
+    border:none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-ungu{ background-color: var(--warna-utama); }
+.btn-kuning{ background-color: var(--warna-btn-hewan); }
+.btn-merah{ background-color: var(--warna-btn-buah); }
+
+/*desain tentang kelompok*/
+.section-tentang {
+    padding: 80px 60px;
+    text-align: center;
+    background-color: #fff8ed;
+    margin-top: 200px;
+    scroll-margin-top: 100px;
+}
+
+.judul-tentang {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.judul-tentang span {
+    color: #8c6ff0;
+}
+
+.judul-tentang strong {
+    color: #ff6f59;
+}
+
+.deskripsi-tentang {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.anggota-kelompok {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.kartu-anggota {
+    width: 200px;
+    padding: 25px 15px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.foto-anggota {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.foto-anggota img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kartu-anggota h3 {
+    margin: 10px 0 5px;
+    color: #6a0572;
+}
+
+.kartu-anggota p {
+    margin: 0;
+    color: var(--warna-teks);
+    font-size: 14px;
+}
