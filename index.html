@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Tugas Alfabet - Hewan dan Buah</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR  -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo1.png" alt="Logo" height="90">
+
+    </div>
+
+    <div class="nav-link">
+      <a href="javascript:void(0);" class="nav-item aktif" onclick="pindahMenu('home', this)">🏠 HOME</a>
+      <a href="javascript:void(0);" class="nav-item" onclick="pindahMenu('alfabet', this)">🔠 ALFABET</a>
+      <a href="javascript:void(0);" class="nav-item" onclick="pindahMenu('tentang', this)">👥 TENTANG</a>
+</div>
+
+    <button class="btn-ayo-belajar">⭐ Ayo Belajar!</button>
+  </nav>
+
+  <!-- 2. KARTU UTAMA  BERISI HERO SECTION -->
+  <div class="kartu-utama">
+    <section class="hero">
+      <div class="hero-konten">
+        <h1 class="hero-judul">
+          <span class="teks-biru">AYO, BELAJAR</span><br>
+          <span class="teks-coklat">ALFABET</span>
+        </h1>
+        <div class="kotak-deskripsi">
+          <p class="deskripsi">Selamat datang di Bepy! Di sini, kamu dapat belajar huruf-huruf alfabet dengan menyenangkan. Klik tombol A-Z untuk memulai petualangan belajarmu!</p>
+        </div>
+        <button class="btn-mulai-ungu" onclick="mulaiBelajar()">🚀 MULAI BELAJAR</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="bagian-alfabet">
+    <div class="judul-kategori">
+        <h2 class="judul-teks">
+            <span class="warna-mulai">MULAI</span>
+            <span class="warna-belajar">BELAJAR!</span>
+        </h2>
+    </div>
+
+</div>
+
+    <!-- KUMPULAN TOMBOL A-Z -->
+    <div id="grid">
+      <button class="tombol-huruf" style="background-color: #8C6FF0;" onclick="bukaKotak('A')">A</button>
+      <button class="tombol-huruf" style="background-color: #FFC857;" onclick="bukaKotak('B')">B</button>
+      <button class="tombol-huruf" style="background-color: #FF6F59;" onclick="bukaKotak('C')">C</button>
+      <button class="tombol-huruf" style="background-color: #6A0572;" onclick="bukaKotak('D')">D</button>
+      <button class="tombol-huruf" style="background-color: #8C6FF0;" onclick="bukaKotak('E')">E</button>
+      <button class="tombol-huruf" style="background-color: #FFC857;" onclick="bukaKotak('F')">F</button>
+      <button class="tombol-huruf" style="background-color: #FF6F59;" onclick="bukaKotak('G')">G</button>
+      <button class="tombol-huruf" style="background-color: #6A0572;" onclick="bukaKotak('H')">H</button>
+      <button class="tombol-huruf" style="background-color: #8C6FF0;" onclick="bukaKotak('I')">I</button>
+      <button class="tombol-huruf" style="background-color: #FFC857;" onclick="bukaKotak('J')">J</button>
+      <button class="tombol-huruf" style="background-color: #FF6F59;" onclick="bukaKotak('K')">K</button>
+      <button class="tombol-huruf" style="background-color: #6A0572;" onclick="bukaKotak('L')">L</button>
+      <button class="tombol-huruf" style="background-color: #8C6FF0;" onclick="bukaKotak('M')">M</button>
+      <button class="tombol-huruf" style="background-color: #FFC857;" onclick="bukaKotak('N')">N</button>
+      <button class="tombol-huruf" style="background-color: #FF6F59;" onclick="bukaKotak('O')">O</button>
+      <button class="tombol-huruf" style="background-color: #6A0572;" onclick="bukaKotak('P')">P</button>
+      <button class="tombol-huruf" style="background-color: #8C6FF0;" onclick="bukaKotak('Q')">Q</button>
+      <button class="tombol-huruf" style="background-color: #FFC857;" onclick="bukaKotak('R')">R</button>
+      <button class="tombol-huruf" style="background-color: #FF6F59;" onclick="bukaKotak('S')">S</button>
+      <button class="tombol-huruf" style="background-color: #6A0572;" onclick="bukaKotak('T')">T</button>
+      <button class="tombol-huruf" style="background-color: #8C6FF0;" onclick="bukaKotak('U')">U</button>
+      <button class="tombol-huruf" style="background-color: #FFC857;" onclick="bukaKotak('V')">V</button>
+      
+      <div class="baris-wxyz">
+        <button class="tombol-huruf" style="background-color: #FF6F59;" onclick="bukaKotak('W')">W</button>
+        <button class="tombol-huruf" style="background-color: #6A0572;" onclick="bukaKotak('X')">X</button>
+        <button class="tombol-huruf" style="background-color: #FF6F59;" onclick="bukaKotak('Y')">Y</button>
+        <button class="tombol-huruf" style="background-color: #6A0572;" onclick="bukaKotak('Z')">Z</button>
+      </div>
+    </div>
+
+    <!--KOTAK DETAIL-->
+
+    <div id="kotak-A" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('A')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <!-- Kartu 1: Huruf -->
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">A a</h2>
+          <audio id="suara-huruf-A" src="audio/a.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-A').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Aanjing.jpg" alt="Anjing" class="foto-kotak">
+          <h3 class="teks-nama">Anjing</h3>
+          <audio id="suara-hewan-A" src="audio/anjing.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-A').play()">🔊 Dengarkan Anjing</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/1buah.png" alt="Apel" class="foto-kotak">
+          <h3 class="teks-nama">Apel</h3>
+          <audio id="suara-buah-A" src="audio/apel.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-A').play()">🔊 Dengarkan Apel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-B" class="kotak-detail" style="display: none;">
+      
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('B')">⬅ Kembali</button>
+      </div>
+
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">B b</h2>
+          <audio id="suara-huruf-B" src="audio/b.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-B').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Bburung.jpg" alt="Burung" class="foto-kotak">
+          <h3 class="teks-nama">Burung</h3>
+          <audio id="suara-hewan-B" src="audio/burung.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-B').play()">🔊 Dengarkan Burung</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/2buah.png" alt="Belimbing" class="foto-kotak">
+          <h3 class="teks-nama">Belimbing</h3>
+          <audio id="suara-buah-B" src="audio/belimbing.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-B').play()">🔊 Dengarkan Belimbing</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-C" class="kotak-detail" style="display: none;">
+      
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('C')">⬅ Kembali</button>
+      </div>
+
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">C c</h2>
+          <audio id="suara-huruf-C" src="audio/c.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-C').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Ccicak.jpg" alt="Cicak" class="foto-kotak">
+          <h3 class="teks-nama">Cicak</h3>
+          <audio id="suara-hewan-C" src="audio/cicak.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-C').play()">🔊 Dengarkan Cicak</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/3buah.png" alt="Ceri" class="foto-kotak">
+          <h3 class="teks-nama">Ceri</h3>
+          <audio id="suara-buah-C" src="audio/ceri.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-C').play()">🔊 Dengarkan Ceri</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-D" class="kotak-detail" style="display: none;">
+      
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('D')">⬅ Kembali</button>
+      </div>
+
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">D d</h2>
+          <audio id="suara-huruf-D" src="audio/d.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-D').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Ddomba.jpg" alt="Domba" class="foto-kotak">
+          <h3 class="teks-nama">Domba</h3>
+          <audio id="suara-hewan-D" src="audio/domba.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-D').play()">🔊 Dengarkan Domba</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/4buah.png" alt="Durian" class="foto-kotak">
+          <h3 class="teks-nama">Durian</h3>
+          <audio id="suara-buah-D" src="audio/durian.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-D').play()">🔊 Dengarkan Durian</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-E" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('E')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">E e</h2>
+          <audio id="suara-huruf-E" src="audio/e.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-E').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Eelang.jpg" alt="Elang" class="foto-kotak">
+          <h3 class="teks-nama">Elang</h3>
+          <audio id="suara-hewan-E" src="audio/elang.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-E').play()">🔊 Dengarkan Elang</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/5buah.png" alt="Enau" class="foto-kotak">
+          <h3 class="teks-nama">Enau</h3>
+          <audio id="suara-buah-E" src="audio/enau.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-E').play()">🔊 Dengarkan Enau</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-F" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('F')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">F f</h2>
+          <audio id="suara-huruf-F" src="audio/f.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-F').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Fflaminggo.jpg" alt="Flaminggo" class="foto-kotak">
+          <h3 class="teks-nama">Flaminggo</h3>
+          <audio id="suara-hewan-F" src="audio/flamingo.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-F').play()">🔊 Dengarkan Flaminggo</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/6buah.png" alt="Frambos" class="foto-kotak">
+          <h3 class="teks-nama">Frambos</h3>
+          <audio id="suara-buah-F" src="audio/frambos.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-F').play()">🔊 Dengarkan Frambos</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-G" class="kotak-detail" style="display: none;"> 
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('G')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">G g</h2>
+          <audio id="suara-huruf-G" src="audio/g.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-G').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Ggajah.jpg" alt="Gajah" class="foto-kotak">
+          <h3 class="teks-nama">Gajah</h3>
+          <audio id="suara-hewan-G" src="audio/gajah.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-G').play()">🔊 Dengarkan Gajah</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/7buah.png" alt="Ceri" class="foto-kotak">
+          <h3 class="teks-nama">Gandaria</h3>
+          <audio id="suara-buah-G" src="audio/gandaria.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-G').play()">🔊 Dengarkan Gandaria</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-H" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('H')">⬅ Kembali</button>
+      </div>
+
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">H h</h2>
+          <audio id="suara-huruf-H" src="audio/h.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-H').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Hharimau.jpg" alt="Harimau" class="foto-kotak">
+          <h3 class="teks-nama">Harimau</h3>
+          <audio id="suara-hewan-H" src="audio/harimau.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-H').play()">🔊 Dengarkan Harimau</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/8buah.png" alt="Hala" class="foto-kotak">
+          <h3 class="teks-nama">Hala</h3>
+          <audio id="suara-buah-H" src="audio/hala.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-H').play()">🔊 Dengarkan Hala</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-I" class="kotak-detail" style="display: none;">
+      
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('I')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">I i</h2>
+          <audio id="suara-huruf-I" src="audio/i.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-I').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Iikan.jpg" alt="Ikan" class="foto-kotak">
+          <h3 class="teks-nama">Ikan</h3>
+          <audio id="suara-hewan-I" src="audio/ikan.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-I').play()">🔊 Dengarkan Ikan</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/9buah.png" alt="Imbe" class="foto-kotak">
+          <h3 class="teks-nama">Imbe</h3>
+          <audio id="suara-buah-I" src="audio/imbe.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-I').play()">🔊 Dengarkan Imbe</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-J" class="kotak-detail" style="display: none;">  
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('J')">⬅ Kembali</button>
+      </div>
+
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">J j</h2>
+          <audio id="suara-huruf-J" src="audio/j.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-J').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Jjerapah.jpg" alt="Jerapah" class="foto-kotak">
+          <h3 class="teks-nama">Jerapah</h3>
+          <audio id="suara-hewan-J" src="audio/jerapah.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-J').play()">🔊 Dengarkan Jerapah</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/10buah.png" alt="Jambu" class="foto-kotak">
+          <h3 class="teks-nama">Jambu</h3>
+          <audio id="suara-buah-J" src="audio/jambu.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-J').play()">🔊 Dengarkan Jambu</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-K" class="kotak-detail" style="display: none;">  
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('K')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">K k</h2>
+          <audio id="suara-huruf-K" src="audio/k.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-K').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Kkoala.jpg" alt="Koala" class="foto-kotak">
+          <h3 class="teks-nama">Koala</h3>
+          <audio id="suara-hewan-K" src="audio/koala.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-K').play()">🔊 Dengarkan Koala</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/11buah.png" alt="Kelengkeng" class="foto-kotak">
+          <h3 class="teks-nama">Kelengkeng</h3>
+          <audio id="suara-buah-K" src="audio/kelengkeng.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-K').play()">🔊 Dengarkan Kelengkeng</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-L" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('L')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">L l</h2>
+          <audio id="suara-huruf-L" src="audio/l.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-L').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Llumbalumba.jpg" alt="Lumba-lumba" class="foto-kotak">
+          <h3 class="teks-nama">Lumba-lumba</h3>
+          <audio id="suara-hewan-L" src="audio/lumbalumba.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-L').play()">🔊 Dengarkan Lumba-lumba</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/12buah.png" alt="Lemon" class="foto-kotak">
+          <h3 class="teks-nama">Lemon</h3>
+          <audio id="suara-buah-L" src="audio/lemon.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-L').play()">🔊 Dengarkan Lemon</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-M" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('M')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">M m</h2>
+          <audio id="suara-huruf-M" src="audio/m.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-M').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Mmonyet.jpg" alt="Monyet" class="foto-kotak">
+          <h3 class="teks-nama">Monyet</h3>
+          <audio id="suara-hewan-M" src="audio/monyet.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-M').play()">🔊 Dengarkan Monyet</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/13buah.png" alt="Mangga" class="foto-kotak">
+          <h3 class="teks-nama">Mangga</h3>
+          <audio id="suara-buah-M" src="audio/mangga.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-M').play()">🔊 Dengarkan Mangga</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-N" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('N')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">N n</h2>
+          <audio id="suara-huruf-N" src="audio/n.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-N').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Nnyamuk.jpg" alt="Nyamuk" class="foto-kotak">
+          <h3 class="teks-nama">Nyamuk</h3>
+          <audio id="suara-hewan-N" src="audio/nyamuk.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-N').play()">🔊 Dengarkan Nyamuk</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/14buah.png" alt="Nanas" class="foto-kotak">
+          <h3 class="teks-nama">Nanas</h3>
+          <audio id="suara-buah-N" src="audio/nanas.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-N').play()">🔊 Dengarkan Nanas</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-O" class="kotak-detail" style="display: none;"> 
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('O')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">O o</h2>
+          <audio id="suara-huruf-O" src="audio/o.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-O').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Oorangutan.jpg" alt="Orangutan" class="foto-kotak">
+          <h3 class="teks-nama">Orangutan</h3>
+          <audio id="suara-hewan-O" src="audio/orangutan.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-O').play()">🔊 Dengarkan Orangutan</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/15buah.png" alt="Olallieberry" class="foto-kotak">
+          <h3 class="teks-nama">Olallieberry</h3>
+          <audio id="suara-buah-O" src="audio/olalliberry.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-O').play()">🔊 Dengarkan Olallieberry</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-P" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('P')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">P p</h2>
+          <audio id="suara-huruf-P" src="audio/p.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-P').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Ppinguin.jpg" alt="Pinguin" class="foto-kotak">
+          <h3 class="teks-nama">Pinguin</h3>
+          <audio id="suara-hewan-P" src="audio/penguin.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-P').play()">🔊 Dengarkan Pinguin</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/16buah.png" alt="Pisang" class="foto-kotak">
+          <h3 class="teks-nama">Pisang</h3>
+          <audio id="suara-buah-P" src="audio/pisang.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-P').play()">🔊 Dengarkan Pisang</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-Q" class="kotak-detail" style="display: none;"> 
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('Q')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">Q q</h2>
+          <audio id="suara-huruf-Q" src="audio/q.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-Q').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Qquail.jpg" alt="Quail" class="foto-kotak">
+          <h3 class="teks-nama">Quail</h3>
+          <audio id="suara-hewan-Q" src="audio/quail.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-Q').play()">🔊 Dengarkan Quail</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/17buah.png" alt="Quince" class="foto-kotak">
+          <h3 class="teks-nama">Quince</h3>
+          <audio id="suara-buah-Q" src="audio/quince.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-Q').play()">🔊 Dengarkan Quince</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-R" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('R')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">R r</h2>
+          <audio id="suara-huruf-R" src="audio/r.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-R').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Rrusa.jpg" alt="Rusa" class="foto-kotak">
+          <h3 class="teks-nama">Rusa</h3>
+          <audio id="suara-hewan-R" src="audio/rusa.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-R').play()">🔊 Dengarkan Rusa</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/18buah.png" alt="Rambutan" class="foto-kotak">
+          <h3 class="teks-nama">Rambutan</h3>
+          <audio id="suara-buah-R" src="audio/rambutan.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-R').play()">🔊 Dengarkan Rambutan</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-S" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('S')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">S s</h2>
+          <audio id="suara-huruf-S" src="audio/s.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-S').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Ssinga.jpg" alt="Singa" class="foto-kotak">
+          <h3 class="teks-nama">Singa</h3>
+          <audio id="suara-hewan-S" src="audio/singa.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-S').play()">🔊 Dengarkan Singa</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/19buah.png" alt="Strawberry" class="foto-kotak">
+          <h3 class="teks-nama">Strawberry</h3>
+          <audio id="suara-buah-S" src="audio/strawberry.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-S').play()">🔊 Dengarkan Strawberry</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-T" class="kotak-detail" style="display: none;">  
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('T')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">T t</h2>
+          <audio id="suara-huruf-T" src="audio/t.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-T').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Ttupai.jpg" alt="Tupai" class="foto-kotak">
+          <h3 class="teks-nama">Tupai</h3>
+          <audio id="suara-hewan-T" src="audio/tupai.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-T').play()">🔊 Dengarkan Tupai</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/20buah.png" alt="Tomat" class="foto-kotak">
+          <h3 class="teks-nama">Tomat</h3>
+          <audio id="suara-buah-T" src="audio/tomat.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-T').play()">🔊 Dengarkan Tomat</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-U" class="kotak-detail" style="display: none;">  
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('U')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">U u</h2>
+          <audio id="suara-huruf-U" src="audio/u.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-U').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Uunta.jpg" alt="Unta" class="foto-kotak">
+          <h3 class="teks-nama">Unta</h3>
+          <audio id="suara-hewan-U" src="audio/unta.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-U').play()">🔊 Dengarkan Unta</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/21buah.png" alt="Ubi" class="foto-kotak">
+          <h3 class="teks-nama">Ubi</h3>
+          <audio id="suara-buah-U" src="audio/ubi.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-U').play()">🔊 Dengarkan Ubi</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-V" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('V')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">V v</h2>
+          <audio id="suara-huruf-V" src="audio/v.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-V').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Vviper.jpg" alt="Viper" class="foto-kotak">
+          <h3 class="teks-nama">Viper</h3>
+          <audio id="suara-hewan-V" src="audio/viper.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-V').play()">🔊 Dengarkan Viper</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/22buah.png" alt="Vanilli" class="foto-kotak">
+          <h3 class="teks-nama">Vanilli</h3>
+          <audio id="suara-buah-V" src="audio/vanili.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-V').play()">🔊 Dengarkan Vanilli</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-W" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('W')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">W w</h2>
+          <audio id="suara-huruf-W" src="audio/w.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-W').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Wwalrus.jpg" alt="Walrus" class="foto-kotak">
+          <h3 class="teks-nama">Walrus</h3>
+          <audio id="suara-hewan-W" src="audio/walrus.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-W').play()">🔊 Dengarkan Walrus</button>
+        </div>
+        <div class="kartu desain-buah">
+          <img src="images/23buah.png" alt="Wuni" class="foto-kotak">
+          <h3 class="teks-nama">Wuni</h3>
+          <audio id="suara-buah-W" src="audio/wuni.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-W').play()">🔊 Dengarkan Wuni</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-X" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('X')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">X x</h2>
+          <audio id="suara-huruf-X" src="audio/x.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-X').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Xxiphias.jpg" alt="Xiphias" class="foto-kotak">
+          <h3 class="teks-nama">Xiphias</h3>
+          <audio id="suara-hewan-X" src="audio/xiphias.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-X').play()">🔊 Dengarkan Xiphias</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/24buah.png" alt="Ximenia" class="foto-kotak">
+          <h3 class="teks-nama">Ximenia</h3>
+          <audio id="suara-buah-X" src="audio/ximenia.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-X').play()">🔊 Dengarkan Ximenia</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-Y" class="kotak-detail" style="display: none;"> 
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('Y')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">Y y</h2>
+          <audio id="suara-huruf-Y" src="audio/y.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-Y').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        <div class="kartu desain-hewan">
+          <img src="images/Yyak.jpg" alt="Yak" class="foto-kotak">
+          <h3 class="teks-nama">Yak</h3>
+          <audio id="suara-hewan-Y" src="audio/yak.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-Y').play()">🔊 Dengarkan Yak</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/25buah.png" alt="Yangmei" class="foto-kotak">
+          <h3 class="teks-nama">Yangmei</h3>
+          <audio id="suara-buah-Y" src="audio/yangmei.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-Y').play()">🔊 Dengarkan Yangmei</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="kotak-Z" class="kotak-detail" style="display: none;">
+      <div class="header-kartu">
+        <button class="btn-kembali" onclick="tutupKotak('Z')">⬅ Kembali</button>
+      </div>
+      <div class="bungkus-kartu">
+        <div class="kartu desain-huruf">
+          <h2 class="teks-besar">Z z</h2>
+          <audio id="suara-huruf-Z" src="audio/z.mp3"></audio>
+          <button class="btn-suara btn-ungu" onclick="document.getElementById('suara-huruf-Z').play()">🔊 Dengarkan Huruf</button>
+        </div>
+        
+        <div class="kartu desain-hewan">
+          <img src="images/Zzebra.jpg" alt="Zebra" class="foto-kotak">
+          <h3 class="teks-nama">Zebra</h3>
+          <audio id="suara-hewan-Z" src="audio/zebra.mp3"></audio>
+          <button class="btn-suara btn-kuning" onclick="document.getElementById('suara-hewan-Z').play()">🔊 Dengarkan Zebra</button>
+        </div>
+        
+        <div class="kartu desain-buah">
+          <img src="images/26buah.png" alt="Zaitun" class="foto-kotak">
+          <h3 class="teks-nama">Zaitun</h3>
+          <audio id="suara-buah-Z" src="audio/zaitun.mp3"></audio>
+          <button class="btn-suara btn-merah" onclick="document.getElementById('suara-buah-Z').play()">🔊 Dengarkan Zaitun</button>
+        </div>
+      </div>
+    </div>
+
+<!-- TENTANG KELOMPOK -->
+<section class="section-tentang" id="tentang">
+
+  <div class="judul-tentang">
+    <strong>KENALAN DENGAN TIM BEPY!</strong>
+  </div>
+
+  <p class="deskripsi-tentang">
+        Haloo, kami adalah tim di balik BEPY! Bersama BEPY, kami ingin membuat belajar huruf dan membaca menjadi lebih menyenangkan dan seru untuk anak-anak. Yuk, belajar bersama! 💛
+  </p>
+
+  <div class="anggota-kelompok">
+
+    <div class="kartu-anggota">
+      <div class="foto-anggota">
+        <img src="images/Baraa Razya _ 250401010572.jpeg" alt="Anggota 1">
+      </div>
+      <h3>Baraa Razya</h3>
+      <p>250401010572</p>
+    </div>
+
+    <div class="kartu-anggota">
+      <div class="foto-anggota">
+        <img src="images/Euodia Misyael Hadasa - 250401010296.jfif" alt="Anggota 2">
+      </div>
+      <h3>Euodia Misyael Hadasa</h3>
+      <p>250401010296</p>
+    </div>
+
+    <div class="kartu-anggota">
+      <div class="foto-anggota">
+        <img src="images/excel.jpg" alt="Anggota 3">
+      </div>
+      <h3>Excel Pradna Mahendra</h3>
+      <p>250401010310</p>
+    </div>
+
+    <div class="kartu-anggota">
+      <div class="foto-anggota">
+        <img src="images/Rastini Sutiawati_250401010299.jpeg" alt="Anggota 4">
+      </div>
+      <h3>Rastini Sutiawati</h3>
+      <p>250401010299</p>
+    </div>
+
+    <div class="kartu-anggota">
+      <div class="foto-anggota">
+        <img src="images/Pebriyani Tasyah_250401010294.jpg" alt="Anggota 4">
+      </div>
+      <h3>Pebriyani Tasyah</h3>
+      <p>250401010294</p>
+    </div>
+
+  </div>
+
+</section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
